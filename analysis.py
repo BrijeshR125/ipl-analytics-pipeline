@@ -12,20 +12,20 @@ print("---")
 print(df.columns)
 
 
-# 4. Kaun sa venue sabse zyada matches host karta hai?
+# Top 5 Venues
 print("\nTop 5 Venues:")
 print(df['venue'].value_counts().head(5))
 
-# 5. Toss jeetne wale ne match bhi jeeta kitni baar?
+# How many matches won by Toss winner
 toss_match_win = df[df['toss_winner'] == df['winner']]
 percentage = round(len(toss_match_win) / len(df) * 100, 2)
 print("\nToss winner = Match winner:", percentage, "%")
 
-# 6. Season wise kitne matches hue?
+# season wise matches
 print("\nMatches per season:")
 print(df.groupby('season')['id'].count())
 
-# 7. Loading delevery.csv data
+# Loading delevery.csv data
 df2 = pd.read_csv('deliveries.csv')
 
 print("Deliveries shape:", df2.shape)
